@@ -34,5 +34,6 @@ module.exports = {
     'react/jsx-filename-extension': ['off'],
     'array-callback-return': ['off'],
     'react/function-component-definition': ['off'],
+    'react/jsx-props-no-spreading': ['off'],
   },
 };

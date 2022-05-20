@@ -3,9 +3,11 @@ import {
   Alert,
   AlertIcon,
   Box,
+  Flex,
   Heading, Link, Skeleton, Stack,
 } from '@chakra-ui/react';
-import { useParams } from 'react-router-dom';
+import { EditIcon } from '@chakra-ui/icons';
+import { Link as ReachLink, useParams } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import useVideo from '../queries/useVideo';
 
@@ -33,9 +35,14 @@ function VideoDetails() {
 
   return (
     <Stack>
-      <Link href={`${data?.data.attributes.url}`} target="_blank">
-        <Heading>{data?.data.attributes.title}</Heading>
-      </Link>
+      <Flex justifyContent="space-between">
+        <Link href={`${data?.data.attributes.url}`} target="_blank">
+          <Heading>{data?.data.attributes.title}</Heading>
+        </Link>
+        <Link as={ReachLink} to={`/${data?.data.id}/edit`}>
+          <EditIcon />
+        </Link>
+      </Flex>
       <Box data-testid="player">
         <YouTube
           videoId={data?.data.attributes.slug}

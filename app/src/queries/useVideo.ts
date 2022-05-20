@@ -3,7 +3,7 @@ import { ResourceResponse, Video } from '../api/types';
 import { queryVideosById } from '../api/videos';
 import { unwrapData } from '../helpers';
 
-const useVideo = (id: string | undefined) => useQuery('videos', () => unwrapData<ResourceResponse<Video>>(queryVideosById(id as string)), {
+const useVideo = (id: string | undefined) => useQuery(['videos', { id }], () => unwrapData<ResourceResponse<Video>>(queryVideosById(id as string)), {
   enabled: !!id,
 });
 

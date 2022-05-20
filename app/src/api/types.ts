@@ -1,14 +1,16 @@
+export type VideoAttributes = {
+    slug: string,
+    title: string,
+    url: string,
+    isPublic: boolean,
+    createdAt?: string,
+    updatedAt?: string,
+    publishedAt?: string
+}
+
 export type Video = {
     id: string,
-    attributes: {
-        slug: string,
-        title: string,
-        url: string,
-        isPublic: true,
-        createdAt: string,
-        updatedAt: string,
-        publishedAt: string
-    }
+    attributes: VideoAttributes
 }
 
 export type Pagination = {

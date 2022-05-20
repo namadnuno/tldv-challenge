@@ -13,6 +13,7 @@ import VideosList from "./pages/VideosList";
 import NotFound from "./pages/NotFound";
 import VideoEdit from "./pages/VideoEdit";
 import VideoDetails from "./pages/VideoDetails";
+
 const queryClient = new QueryClient()
 
 export const App = () => (

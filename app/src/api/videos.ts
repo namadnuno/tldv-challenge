@@ -1,6 +1,8 @@
 import { api } from '.';
-import { PaginatedResourceResponse, Video } from './types';
+import { PaginatedResourceResponse, ResourceResponse, Video } from './types';
 
-const queryVideos = () => api.get<PaginatedResourceResponse<Video>>('/videos');
+const queryVideos = () => api.get<PaginatedResourceResponse<Video[]>>('/videos');
 
-export { queryVideos };
+const queryVideosById = (id: string) => api.get<ResourceResponse<Video>>(`/videos/${id}`);
+
+export { queryVideos, queryVideosById };

@@ -18,9 +18,11 @@ export type Pagination = {
     total: 1
 }
 
-export type PaginatedResourceResponse<T> = {
-    data: T[],
-    meta: {
-        pagination: Pagination
-    }
+export type ResourceResponse<T, M = {}> = {
+    data: T,
+    meta: M
 }
+
+export type PaginatedResourceResponse<T> = ResourceResponse<T, {
+    pagination: Pagination
+}>

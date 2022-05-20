@@ -35,6 +35,23 @@ const videosResponse = {
   },
 };
 
+const singleVideoResponse = {
+  data: {
+    id: 1,
+    attributes: {
+      slug: 'etLHPhLy8Q0',
+      title: 'tl;dv for Google Meet - Product Hunt Launch Video',
+      url: 'https://www.youtube.com/watch?v=etLHPhLy8Q0',
+      isPublic: true,
+      createdAt: '2022-05-20T08:47:29.364Z',
+      updatedAt: '2022-05-20T08:55:37.796Z',
+      publishedAt: '2022-05-20T08:55:37.791Z',
+    },
+  },
+  meta: {},
+};
+
 export {
   videosResponse,
+  singleVideoResponse,
 };

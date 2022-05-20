@@ -40,7 +40,7 @@ describe('videos listing page', () => {
         .reply(404);
     });
 
-    it('should show all the videos returned by the API', async () => {
+    it('should show an error message', async () => {
       render(<VideosList />);
 
       await waitFor(() => {

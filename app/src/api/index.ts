@@ -1,14 +1,14 @@
-import axios from "axios";
+import axios from 'axios';
 
-const baseURL = "http://localhost:1337/api"
+const baseURL = 'http://localhost:1337/api';
 
-axios.defaults.adapter = require('axios/lib/adapters/http')
+axios.defaults.adapter = require('axios/lib/adapters/http');
 
 const api = axios.create({
-    baseURL
+  baseURL,
 });
 
 export {
-    api,
-    baseURL
+  api,
+  baseURL,
 };

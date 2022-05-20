@@ -1,11 +1,11 @@
-import { AxiosResponse } from "axios";
+import { AxiosResponse } from 'axios';
 
 const unwrapData = async <T = any>(response: Promise<AxiosResponse<T>>) => {
-    const { data } = await response;
+  const { data } = await response;
 
-    return data;
-}   
+  return data;
+};
 
 export {
-    unwrapData
-}
+  unwrapData,
+};

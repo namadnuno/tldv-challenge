@@ -6,14 +6,18 @@ import reportWebVitals from "./reportWebVitals"
 import * as serviceWorker from "./serviceWorker"
 
 const container = document.getElementById("root")
-const root = ReactDOM.createRoot(container)
+if (container) {
+  const root = ReactDOM.createRoot(container)
+  root.render(
+    <React.StrictMode>
+      <ColorModeScript />
+      <App />
+    </React.StrictMode>,
+  )
+} else {
+  throw new Error("No container found");
+}
 
-root.render(
-  <React.StrictMode>
-    <ColorModeScript />
-    <App />
-  </React.StrictMode>,
-)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

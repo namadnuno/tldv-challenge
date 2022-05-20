@@ -11,7 +11,7 @@ jest.mock('react-router-dom', () => ({
   useParams: () => ({
     id: '1',
   }),
-  useRouteMatch: () => ({ url: '/company/company-id1/team/team-id1' }),
+  useRouteMatch: () => ({ url: '/1' }),
 }));
 
 describe('video details page', () => {

@@ -1,5 +1,7 @@
 # tl;dv - Full-Stack Developer Test
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4f3a767c-489e-4744-be4c-b1d2bbaf8726/deploy-status)](https://app.netlify.com/sites/elegant-concha-fd3500/deploys)
+
 # Requirements
 
 - Bootstrap a new API with a mongo database - use [Strapi](https://strapi.io/) or mock the API requests

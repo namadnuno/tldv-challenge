@@ -2,7 +2,8 @@ import React from 'react';
 import {
   Alert,
   AlertIcon,
-  Box,
+  Badge,
+  Button,
   Flex,
   Heading, Link, Skeleton, Stack,
 } from '@chakra-ui/react';
@@ -10,6 +11,7 @@ import { EditIcon } from '@chakra-ui/icons';
 import { Link as ReachLink, useParams } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import useVideo from '../queries/useVideo';
+import { formatToHumans } from '../helpers';
 
 function VideoDetails() {
   const { id } = useParams();
@@ -35,15 +37,19 @@ function VideoDetails() {
 
   return (
     <Stack>
-      <Flex justifyContent="space-between">
+      <Flex justifyContent="space-between" mb={16} alignItems="center">
         <Link href={`${data?.data.attributes.url}`} target="_blank">
           <Heading>{data?.data.attributes.title}</Heading>
+          {
+          data?.data.attributes.publishedAt
+      && <Badge>{formatToHumans(data?.data.attributes.publishedAt)}</Badge>
+      }
         </Link>
-        <Link as={ReachLink} to={`/${data?.data.id}/edit`}>
+        <Button colorScheme="blue" as={ReachLink} to={`/${data?.data.id}/edit`}>
           <EditIcon />
-        </Link>
+        </Button>
       </Flex>
-      <Box data-testid="player">
+      <Flex data-testid="player" justifyContent="center" py={16} bg="black" borderRadius="lg">
         <YouTube
           videoId={data?.data.attributes.slug}
           opts={{
@@ -52,7 +58,7 @@ function VideoDetails() {
             },
           }}
         />
-      </Box>
+      </Flex>
     </Stack>
   );
 }

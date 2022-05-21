@@ -3,19 +3,13 @@ import {
   Heading, Link, Image, Flex, Box, Badge,
 } from '@chakra-ui/react';
 import { Link as ReachLink } from 'react-router-dom';
-import dayjs from 'dayjs';
-import duration from 'dayjs/plugin/duration';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import { Video } from '../api/types';
 
-dayjs.extend(duration);
-dayjs.extend(relativeTime);
+import { Video } from '../api/types';
+import { formatToHumans } from '../helpers';
 
 type Props = {
     video: Video
 }
-
-const formatToHumans = (date: string) => dayjs().to(date);
 
 const VideoItem: React.FC<Props> = ({ video }) => (
   <Flex shadow="base" borderRadius="base" gap={4}>

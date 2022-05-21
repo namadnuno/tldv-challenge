@@ -8,6 +8,7 @@ import {
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from 'react-query';
+import { Link as ReachLink } from 'react-router-dom';
 import { VideoAttributes } from '../api/types';
 import { updateVideoAttributes } from '../api/videos';
 
@@ -76,8 +77,11 @@ const VideoForm: React.FC<Props> = ({ video, id }) => {
           </FormLabel>
           <Switch id="isPublic" {...register('isPublic')} />
         </FormControl>
-        <FormControl display="flex" alignItems="center">
-          <Button type="submit" colorScheme="teal" size="lg" isLoading={mutation.isLoading}>
+        <FormControl display="flex" alignItems="center" justifyContent="flex-end" gap={3}>
+          <Button as={ReachLink} to={`/${id}`} colorScheme="blackAlpha" size="lg" isLoading={mutation.isLoading}>
+            Back
+          </Button>
+          <Button type="submit" colorScheme="blue" size="lg" isLoading={mutation.isLoading}>
             Submit
           </Button>
         </FormControl>

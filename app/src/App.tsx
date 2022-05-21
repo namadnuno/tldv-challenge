@@ -13,6 +13,7 @@ import VideosList from './pages/VideosList';
 import NotFound from './pages/NotFound';
 import VideoEdit from './pages/VideoEdit';
 import VideoDetails from './pages/VideoDetails';
+import Layout from './components/Layout';
 
 const queryClient = new QueryClient();
 
@@ -21,12 +22,14 @@ export function App() {
     <ChakraProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
         <Router>
-          <Routes>
-            <Route path="/" element={<VideosList />} />
-            <Route path="/:id" element={<VideoDetails />} />
-            <Route path="/:id/edit" element={<VideoEdit />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<VideosList />} />
+              <Route path="/:id" element={<VideoDetails />} />
+              <Route path="/:id/edit" element={<VideoEdit />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Layout>
         </Router>
       </QueryClientProvider>
     </ChakraProvider>

@@ -19,6 +19,11 @@ const Layout: React.FC<Props> = ({ children }) => (
       <Box>
         {children}
       </Box>
+      <Box textAlign="center" py={12}>
+        © 2022 - review the code
+        {' '}
+        <Link href="https://github.com/namadnuno/tldv-challenge" target="_blank">here</Link>
+      </Box>
     </Container>
   </Box>
 );

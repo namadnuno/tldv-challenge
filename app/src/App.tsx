@@ -15,7 +15,13 @@ import VideoEdit from './pages/VideoEdit';
 import VideoDetails from './pages/VideoDetails';
 import Layout from './components/Layout';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 export function App() {
   return (

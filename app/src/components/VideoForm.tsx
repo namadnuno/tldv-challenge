@@ -10,11 +10,11 @@ import { useForm } from 'react-hook-form';
 import { useMutation, useQueryClient } from 'react-query';
 import { Link as ReachLink } from 'react-router-dom';
 import { VideoAttributes } from '../api/types';
-import { updateVideoAttributes } from '../api/videos';
+import { createVideo, updateVideoAttributes } from '../api/videos';
 
 type Props = {
     video: VideoAttributes,
-    id: string
+    id?: string
 }
 
 const VideoForm: React.FC<Props> = ({ video, id }) => {
@@ -25,7 +25,8 @@ const VideoForm: React.FC<Props> = ({ video, id }) => {
   });
 
   const queryClient = useQueryClient();
-  const mutation = useMutation((formData: VideoAttributes) => updateVideoAttributes(id, formData));
+  const mutation = useMutation((formData: VideoAttributes) => (
+    id ? updateVideoAttributes(id, formData) : createVideo(formData)));
 
   const onSubmit = (formData: VideoAttributes) => {
     mutation.mutate({
@@ -46,7 +47,9 @@ const VideoForm: React.FC<Props> = ({ video, id }) => {
               && (
               <Alert status="success">
                 <AlertIcon />
-                Video updated
+                Video
+                {' '}
+                { id ? 'updated' : 'created'}
               </Alert>
               )
           }
@@ -78,7 +81,7 @@ const VideoForm: React.FC<Props> = ({ video, id }) => {
           <Switch id="isPublic" {...register('isPublic')} />
         </FormControl>
         <FormControl display="flex" alignItems="center" justifyContent="flex-end" gap={3}>
-          <Button as={ReachLink} to={`/${id}`} colorScheme="blackAlpha" size="lg" isLoading={mutation.isLoading}>
+          <Button as={ReachLink} to={`/${id || ''}`} colorScheme="blackAlpha" size="lg" isLoading={mutation.isLoading}>
             Back
           </Button>
           <Button type="submit" colorScheme="blue" size="lg" isLoading={mutation.isLoading}>

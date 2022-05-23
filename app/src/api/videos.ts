@@ -9,4 +9,8 @@ const queryVideosById = (id: string) => api.get<ResourceResponse<Video>>(`/video
 
 const updateVideoAttributes = (id: string, formData: VideoAttributes) => api.put<ResourceResponse<Video>>(`/videos/${id}`, { data: formData });
 
-export { queryVideos, queryVideosById, updateVideoAttributes };
+const createVideo = (formData: VideoAttributes) => api.post<ResourceResponse<Video>>('/videos/', { data: formData });
+
+export {
+  queryVideos, queryVideosById, updateVideoAttributes, createVideo,
+};

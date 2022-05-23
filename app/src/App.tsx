@@ -14,6 +14,7 @@ import NotFound from './pages/NotFound';
 import VideoEdit from './pages/VideoEdit';
 import VideoDetails from './pages/VideoDetails';
 import Layout from './components/Layout';
+import VideoCreate from './pages/VideoCreate';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,6 +34,7 @@ export function App() {
               <Route path="/" element={<VideosList />} />
               <Route path="/:id" element={<VideoDetails />} />
               <Route path="/:id/edit" element={<VideoEdit />} />
+              <Route path="/create" element={<VideoCreate />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>

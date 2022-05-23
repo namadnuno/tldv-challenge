@@ -1,5 +1,5 @@
 import {
-  Box, Container, Heading, Link,
+  Box, Button, Container, Heading, Link,
 } from '@chakra-ui/react';
 import React from 'react';
 import { Link as ReachLink } from 'react-router-dom';
@@ -15,6 +15,9 @@ const Layout: React.FC<Props> = ({ children }) => (
         <Link as={ReachLink} to="/">
           <Heading textAlign="center">tl;dv challenge 📼</Heading>
         </Link>
+        <Button mt={5} as={ReachLink} to="/create">
+          New Video
+        </Button>
       </Box>
       <Box>
         {children}

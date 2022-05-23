@@ -15,7 +15,7 @@ const Layout: React.FC<Props> = ({ children }) => (
         <Link as={ReachLink} to="/">
           <Heading textAlign="center">tl;dv challenge 📼</Heading>
         </Link>
-        <Button as={ReachLink} to="/create">
+        <Button mt={5} as={ReachLink} to="/create">
           New Video
         </Button>
       </Box>

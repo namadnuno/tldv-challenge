@@ -28,7 +28,7 @@ function VideosList() {
 
   return (
     <Box>
-      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+      <Grid templateColumns={['repeat(1, 1fr)', 'repeat(3, 1fr)']} gap={6}>
         {
                     data?.data.map((video) => (<VideoItem key={video.id} video={video} />))
                 }
